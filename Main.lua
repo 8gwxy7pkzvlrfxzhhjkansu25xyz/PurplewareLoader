@@ -4,14 +4,14 @@
     
     local Window = Library:CreateWindow{
         Title = "Purpleware | BETA",
-        SubTitle = "v.1.2 | .gg/tqYF5aybnq",
+        SubTitle = "v.1.3 | .gg/tqYF5aybnq",
         TabWidth = 150,
         Size = UDim2.fromOffset(640, 450),
-        Resize = true, 
+        Resize = true, -- Resize this ^ Size according to a 1920x1080 screen, good for mobile users but may look weird on some devices
         MinSize = Vector2.new(470, 380),
-        Acrylic = false,
+        Acrylic = false, -- The blur may be detectable, setting this to false disables blur entirely
         Theme = "Dark",
-        MinimizeKey = Enum.KeyCode.RightControl 
+        MinimizeKey = Enum.KeyCode.RightControl -- Used when theres no MinimizeKeybind
     }
 
     local Tabs = {
@@ -309,6 +309,55 @@
         end
     }
 
+    Tabs.Plants:CreateButton{
+        Title = "White side Script",
+        Description = "Pretty decent script, keyless",
+        Callback = function() 
+            Window:Dialog{
+                Title = "Do you want to execute?",
+                Content = "Do you want to run this script?",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            _G.AutoExecute = true
+                        loadstring(game:HttpGet("https://pastefy.app/bOvHcF0d/raw"))()         end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            }
+        end
+    }
+
+        Tabs.Plants:CreateButton{
+        Title = "BonkHub Script",
+        Description = "Pretty decent script, keyless",
+        Callback = function() 
+            Window:Dialog{
+                Title = "Do you want to execute?",
+                Content = "Do you want to run this script?",
+                Buttons = {
+                    {
+                        Title = "Confirm",
+                        Callback = function()
+                            _G.AutoExecute = true
+                        loadstring(game:HttpGet("https://bonkhub.online/loader.lua"))()         end
+                    },
+                    {
+                        Title = "Cancel",
+                        Callback = function()
+                            print("Cancelled the dialog.")
+                        end
+                    }
+                }
+            }
+        end
+    }
 
     -- fisch script
     Tabs.Fisch:CreateButton{
